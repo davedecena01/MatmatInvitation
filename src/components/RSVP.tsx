@@ -23,7 +23,7 @@ export function RSVP() {
           >
             {cfg.rsvp.buttonLabel}
           </a>
-          <p className={styles.hint}>Opens a short Google Form in a new tab.</p>
+          <p className={styles.hint}>{cfg.rsvp.confirmationNote}</p>
         </div>
       </div>
     </section>

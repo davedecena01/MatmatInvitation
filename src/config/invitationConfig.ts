@@ -125,16 +125,28 @@ export const invitationConfig = {
     },
   },
 
-  reminders: {
-    title: "Captain's Reminders",
-    subtitle: 'Crew rules for a smooth voyage',
+  dressCode: {
+    subtitle: 'Dress the part, matey',
+    title: 'Dress Code',
+    prompt: 'Touch the deck to reveal the dress code',
     items: [
-      'All hands on deck early — please arrive at the church before the ceremony starts.',
-      'Quiet seas — kindly keep phones on silent during the baptism ceremony.',
-      'Clean hands, happy captain — please sanitize before holding or greeting the baby.',
-      'No smoke on this ship — no smoking near the event area.',
-      'Count your crew — kindly RSVP so we can prepare enough seats and food.',
-      'Dress for adventure — wear comfortable and family-friendly attire.',
+      { icon: '\u{1F451}', title: 'Smart Casual',      body: 'Come dressed neatly — think Sunday-best meets adventure-ready.' },
+      { icon: '\u{1F31E}', title: 'Sail the Colors',   body: 'Feel free to wear One Piece-inspired or pirate-themed outfits!' },
+      { icon: '\u{1F45E}', title: 'Comfortable Shoes', body: "We'll be sailing between venues — wear shoes you can adventure in." },
+      { icon: '⚐',    title: 'No strict uniform', body: 'Most importantly — come in good spirits and ready to celebrate!' },
+    ],
+  },
+
+  reminders: {
+    title: "Doctor's Orders",
+    subtitle: "Chopper's rules for a smooth voyage",
+    items: [
+      { title: 'Time is treasure',         body: "Please arrive on time so we don't miss a moment of the adventure." },
+      { title: 'Capture the memories',     body: 'Snap away and tag us — help us collect every treasured moment.' },
+      { title: 'Count your crew',          body: 'Kindly RSVP so we can prepare enough seats and food.' },
+      { title: 'Dress for adventure',      body: 'Wear comfortable and family-friendly attire.' },
+      { title: 'No kisses on the captain', body: 'Please refrain from kissing the celebrant.' },
+      { title: 'Stay well, sail safe',     body: "If you're feeling under the weather, please celebrate with us from home." },
     ],
   },
 
@@ -203,6 +215,7 @@ export const invitationConfig = {
   rsvp: {
     title: 'Join the Crew',
     message: "Ready to join Matteo's crew? Let us know if you can celebrate with us.",
+    confirmationNote: 'Kindly confirm your attendance at least two weeks before the event. No plus one, please. Kindly inform the Captain if ever.',
     buttonLabel: 'RSVP Here',
     formUrl: 'https://forms.gle/REPLACE_WITH_ACTUAL_FORM', // REPLACE_WITH_GOOGLE_FORM
   },

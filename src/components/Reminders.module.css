@@ -10,38 +10,198 @@
   text-shadow: 3px 3px 0 rgba(215, 38, 61, 0.5);
 }
 
-.list {
-  list-style: none;
+.hint {
+  text-align: center;
+  font-family: var(--font-poster);
+  color: var(--straw-yellow);
+  font-size: clamp(0.85rem, 2.4vw, 1rem);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  opacity: 0.9;
+  margin: -0.25rem 0 1.5rem;
+}
+
+/* ---- Character avatar ---- */
+.characterSlot {
   display: flex;
   flex-direction: column;
-  gap: 0.9rem;
-  max-width: 38rem;
-  margin: 2rem auto 0;
-  padding: 0;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.characterCircle {
+  width: clamp(110px, 18vw, 150px);
+  height: clamp(110px, 18vw, 150px);
+  border-radius: 50%;
+  border: 4px solid #6f4a22;
+  box-shadow: 0 8px 0 #5b3c1c, 0 18px 30px rgba(8, 16, 36, 0.5);
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.characterImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.characterLabel {
+  font-family: var(--font-display);
+  letter-spacing: 1px;
+  font-size: 1.05rem;
+  color: var(--cloud-white);
+  margin: 0;
+}
+
+/* ---- Accordion list ---- */
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+  max-width: 58rem;
+  margin: 0 auto;
+  align-items: start;
 }
 
 .item {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.9rem;
-  padding: 1rem 1.2rem;
-  font-weight: 600;
   background: linear-gradient(165deg, var(--parchment), var(--parchment-dark));
-  border: var(--border-bold);
-  border-radius: 12px;
-  box-shadow: 0 4px 0 rgba(18, 32, 51, 0.35);
+  border: 2px solid #6f4a22;
+  border-radius: 14px;
+  box-shadow: 0 5px 0 #b9924f;
+  padding: 15px 16px;
+  color: var(--ink);
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1),
+              box-shadow 0.25s ease,
+              border-color 0.25s ease;
+}
+
+.item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 9px 0 #b9924f, 0 16px 26px rgba(8, 16, 36, 0.4);
+  border-color: var(--crimson);
+}
+
+.item:focus-visible {
+  outline: 3px solid var(--straw-yellow);
+  outline-offset: 3px;
+}
+
+.itemOpen {
+  /* subtle distinction; the body drives the visual change */
+}
+
+.header {
+  display: flex;
+  gap: 13px;
+  align-items: center;
 }
 
 .badge {
   flex: none;
-  display: grid;
-  place-items: center;
   width: 34px;
   height: 34px;
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  color: var(--navy-outline);
-  background: var(--straw-yellow);
-  border: 2.5px solid var(--navy-outline);
   border-radius: 50%;
+  background: linear-gradient(180deg, var(--straw-yellow), #e09a1f);
+  border: 2px solid #6f4a22;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--crimson-dark);
+  animation: heartbeat 2.6s ease-in-out infinite;
+}
+
+.itemTitle {
+  flex: 1;
+  font-family: var(--font-display);
+  letter-spacing: 0.5px;
+  font-size: 1.05rem;
+  color: var(--crimson-dark);
+  line-height: 1.1;
+}
+
+.chevron {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid #6f4a22;
+  background: rgba(255, 247, 225, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6f4a22;
+  font-size: 10px;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+/* ---- Expand / collapse (grid-rows trick) ---- */
+.bodyWrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.42s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.itemOpen .bodyWrap {
+  grid-template-rows: 1fr;
+}
+
+.bodyInner {
+  overflow: hidden;
+}
+
+.body {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  padding: 9px 0 2px 47px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #5b3c1c;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.itemOpen .body {
+  opacity: 1;
+}
+
+/* ---- Keyframes ---- */
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  12%       { transform: scale(1.2); }
+  24%       { transform: scale(1); }
+  36%       { transform: scale(1.12); }
+  50%       { transform: scale(1); }
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .badge {
+    animation: none;
+  }
+
+  .item,
+  .chevron,
+  .bodyWrap,
+  .body {
+    transition: none;
+  }
+
+  /* Always show body when motion is reduced */
+  .bodyWrap {
+    grid-template-rows: 1fr;
+  }
+
+  .body {
+    opacity: 1;
+  }
 }

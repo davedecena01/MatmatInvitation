@@ -1,5 +1,7 @@
 import { invitationConfig as cfg } from '../config/invitationConfig';
 import { Waves } from './decor/Waves';
+import eneru2Gif from '../../assets/crew/eneru2.gif';
+import luffyEatingGif from '../../assets/char/luffy-eating.gif';
 import styles from './EventDetails.module.css';
 
 const ICONS = {
@@ -37,11 +39,23 @@ interface EventCard {
   dateDisplay: string;
   mapUrl: string;
   mapButtonLabel: string;
+  charSrc?: string;
+  charAlt?: string;
+  charBg?: string;
 }
 
 function DetailCard({ card }: { card: EventCard }) {
   return (
     <article className={styles.card} data-reveal="">
+      {card.charSrc && (
+        <div
+          className={styles.charBadge}
+          style={card.charBg ? { background: card.charBg } : undefined}
+          aria-hidden="true"
+        >
+          <img src={card.charSrc} alt={card.charAlt ?? ''} className={styles.charImg} />
+        </div>
+      )}
       <div className={styles.cardHeader}>
         <Icon name={card.icon} />
         <h3 className={styles.cardTitle}>{card.title}</h3>
@@ -84,8 +98,24 @@ export function EventDetails() {
         <h2 className={`section-title ${styles.title}`}>Event Details</h2>
 
         <div id="map" className={styles.grid}>
-          <DetailCard card={{ icon: 'church', ...cfg.ceremony }} />
-          <DetailCard card={{ icon: 'party', ...cfg.reception }} />
+          <DetailCard
+            card={{
+              icon: 'church',
+              ...cfg.ceremony,
+              charSrc: eneru2Gif,
+              charAlt: 'Eneru',
+              charBg: 'radial-gradient(circle at 50% 36%, #2f6fbe, #0c2d5c 78%)',
+            }}
+          />
+          <DetailCard
+            card={{
+              icon: 'party',
+              ...cfg.reception,
+              charSrc: luffyEatingGif,
+              charAlt: 'Luffy feasting',
+              charBg: '#0c1a38',
+            }}
+          />
         </div>
       </div>
       <Waves color="var(--ocean-deep)" />

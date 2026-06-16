@@ -4,6 +4,7 @@ import { EventDetails } from './components/EventDetails';
 import { HeroArtwork } from './components/HeroArtwork';
 import { GalleryCarousel } from './components/GalleryCarousel';
 import { GiftGuide } from './components/GiftGuide';
+import { DressCode } from './components/DressCode';
 import { Reminders } from './components/Reminders';
 import { Countdown } from './components/Countdown';
 import { CrewSection } from './components/CrewSection';
@@ -27,6 +28,7 @@ export default function App() {
         <HeroArtwork />
         <GalleryCarousel />
         <GiftGuide />
+        <DressCode />
         <Reminders />
         <Countdown />
         <CrewSection />
