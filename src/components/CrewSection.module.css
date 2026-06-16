@@ -1,0 +1,38 @@
+.wrap {
+  background:
+    radial-gradient(ellipse at 90% 10%, rgba(247, 201, 72, 0.15), transparent 50%),
+    linear-gradient(180deg, var(--ocean-deep), var(--ocean-mid));
+  padding-bottom: calc(var(--section-pad) + clamp(48px, 9vw, 110px));
+}
+
+.title {
+  color: var(--cloud-white);
+  text-shadow: 3px 3px 0 rgba(215, 38, 61, 0.5);
+}
+
+.group {
+  margin-top: 2.5rem;
+}
+
+.groupTitle {
+  text-align: center;
+  font-size: clamp(1.4rem, 5vw, 1.9rem);
+  color: var(--straw-yellow);
+  text-shadow: 2px 2px 0 rgba(18, 32, 51, 0.6);
+  margin-bottom: 1.25rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 560px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 1.25rem;
+  }
+}

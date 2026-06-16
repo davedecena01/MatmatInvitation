@@ -1,0 +1,91 @@
+.wrap {
+  background:
+    radial-gradient(ellipse at 85% 15%, rgba(217, 154, 43, 0.3), transparent 55%),
+    var(--parchment);
+}
+
+.chest {
+  max-width: 34rem;
+  margin: 2rem auto 0;
+  padding: clamp(1.5rem, 5vw, 2.5rem);
+  background: linear-gradient(170deg, #8a5a2b, #6d4520);
+  border: var(--border-bold);
+  border-radius: 16px 16px 12px 12px;
+  box-shadow: var(--shadow-card), inset 0 6px 0 rgba(247, 201, 72, 0.35);
+  position: relative;
+}
+
+/* chest "lid band" + lock */
+.chest::before {
+  content: '';
+  position: absolute;
+  left: -3px;
+  right: -3px;
+  top: 26%;
+  height: 12px;
+  background: var(--treasure-gold);
+  border-top: 3px solid var(--navy-outline);
+  border-bottom: 3px solid var(--navy-outline);
+}
+
+.message {
+  position: relative;
+  z-index: 1;
+  color: var(--parchment);
+  font-size: clamp(1rem, 3.6vw, 1.12rem);
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.treasureNote {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  background: linear-gradient(165deg, var(--parchment), var(--parchment-dark));
+  border: 3px dashed var(--treasure-gold);
+  border-radius: 12px;
+}
+
+@media (min-width: 560px) {
+  .treasureNote {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.qr {
+  width: min(56vw, 200px);
+  flex: none;
+  border: var(--border-bold);
+  background: var(--cloud-white);
+}
+
+.gcashDetails {
+  text-align: center;
+}
+
+.gcashLabel {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--ocean-mid);
+  margin: 0 0 0.3rem;
+}
+
+.gcashName {
+  font-weight: 800;
+  font-size: 1.05rem;
+  margin: 0 0 0.15rem;
+}
+
+.gcashNumber {
+  font-family: var(--font-poster);
+  font-size: 1.3rem;
+  letter-spacing: 0.12em;
+  color: var(--crimson-dark);
+  margin: 0;
+}

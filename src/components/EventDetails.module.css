@@ -1,0 +1,94 @@
+.wrap {
+  background:
+    radial-gradient(ellipse at 80% 0%, rgba(247, 201, 72, 0.18), transparent 50%),
+    linear-gradient(180deg, var(--ocean-deep), var(--ocean-mid));
+  padding-bottom: calc(var(--section-pad) + clamp(48px, 9vw, 110px));
+}
+
+.title {
+  color: var(--cloud-white);
+  text-shadow: 3px 3px 0 rgba(215, 38, 61, 0.5);
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  scroll-margin-top: 1rem;
+}
+
+@media (min-width: 720px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  padding: 1.6rem 1.5rem 1.8rem;
+  background:
+    repeating-linear-gradient(
+      48deg,
+      rgba(201, 169, 106, 0.12) 0 8px,
+      transparent 8px 18px
+    ),
+    linear-gradient(165deg, var(--parchment), var(--parchment-dark));
+  border: var(--border-bold);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+/* dashed treasure-trail border inside the card */
+.card::before {
+  content: none;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  border-bottom: 2px dashed var(--parchment-edge);
+  padding-bottom: 0.8rem;
+}
+
+.cardHeader .icon {
+  width: 44px;
+  color: var(--crimson);
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  color: var(--ocean-deep);
+  margin: 0;
+}
+
+.rows {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
+
+.rows li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  font-size: 1.02rem;
+  font-weight: 600;
+}
+
+.rows .icon {
+  width: 26px;
+  flex: none;
+  margin-top: 2px;
+  color: var(--ocean-mid);
+}
+
+.card a {
+  align-self: flex-start;
+}

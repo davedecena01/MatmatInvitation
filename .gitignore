@@ -1,0 +1,8 @@
+node_modules
+dist
+*.local
+.DS_Store
+
+# Private/large assets you may not want in git (optional — remove these
+# lines if you DO want to commit your real photos and audio):
+# public/audio/*.mp3

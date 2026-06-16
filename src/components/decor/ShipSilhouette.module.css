@@ -1,0 +1,35 @@
+.lane {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: clamp(30px, 6vw, 80px);
+  height: 0;
+  pointer-events: none;
+}
+
+.ship {
+  position: absolute;
+  bottom: 0;
+  width: clamp(56px, 12vw, 110px);
+  animation: sail 50s linear infinite, bob 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes sail {
+  from {
+    left: -15%;
+  }
+  to {
+    left: 105%;
+  }
+}
+
+@keyframes bob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1.5deg);
+  }
+  50% {
+    transform: translateY(-7px) rotate(1.5deg);
+  }
+}

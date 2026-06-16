@@ -1,0 +1,27 @@
+.wrap {
+  background:
+    radial-gradient(ellipse at 15% 20%, rgba(126, 200, 227, 0.25), transparent 55%),
+    linear-gradient(180deg, var(--sky-light), var(--sky-blue));
+}
+
+.figure {
+  max-width: 24rem;
+  margin: 2rem auto 0;
+}
+
+.art {
+  border: 6px solid var(--treasure-gold);
+  outline: var(--border-bold);
+  box-shadow: var(--shadow-card);
+  border-radius: 50% 50% 46% 46% / 8% 8% 8% 8%;
+  background: var(--parchment);
+  transform: rotate(-1.5deg);
+}
+
+.caption {
+  margin-top: 1.2rem;
+  text-align: center;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--ocean-deep);
+}

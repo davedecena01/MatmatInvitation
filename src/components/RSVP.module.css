@@ -1,0 +1,55 @@
+.wrap {
+  background:
+    radial-gradient(ellipse at 20% 100%, rgba(217, 154, 43, 0.25), transparent 55%),
+    var(--parchment);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.1rem;
+  max-width: 30rem;
+  margin: 2rem auto 0;
+  padding: clamp(1.75rem, 6vw, 2.75rem);
+  text-align: center;
+  background:
+    repeating-linear-gradient(
+      -42deg,
+      rgba(201, 169, 106, 0.14) 0 6px,
+      transparent 6px 16px
+    ),
+    linear-gradient(165deg, var(--parchment), var(--parchment-dark));
+  border: var(--border-bold);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+}
+
+.compass {
+  width: 64px;
+  color: var(--ocean-deep);
+  animation: wobble 5s ease-in-out infinite;
+}
+
+@keyframes wobble {
+  0%,
+  100% {
+    transform: rotate(-8deg);
+  }
+  50% {
+    transform: rotate(8deg);
+  }
+}
+
+.message {
+  font-size: clamp(1.05rem, 3.8vw, 1.2rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+}
+
+.hint {
+  font-size: 0.85rem;
+  opacity: 0.65;
+  margin: 0;
+}

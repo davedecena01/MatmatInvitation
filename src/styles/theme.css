@@ -1,0 +1,38 @@
+/* ============================================================
+   THEME — One Piece–inspired pirate adventure palette
+   Edit colors and fonts here; every component reads these vars.
+   ============================================================ */
+:root {
+  /* Palette */
+  --ocean-deep: #0b2545;
+  --ocean-mid: #13457e;
+  --ocean-bright: #1d6fb8;
+  --sky-blue: #7ec8e3;
+  --sky-light: #bde6f5;
+  --straw-yellow: #f7c948;
+  --treasure-gold: #d99a2b;
+  --crimson: #d7263d;
+  --crimson-dark: #a51c30;
+  --parchment: #f6e7c6;
+  --parchment-dark: #e8d3a3;
+  --parchment-edge: #c9a96a;
+  --cloud-white: #ffffff;
+  --navy-outline: #122033;
+  --ink: #2b1d0e;
+
+  /* Typography */
+  --font-display: 'Luckiest Guy', 'Comic Sans MS', cursive;
+  --font-poster: 'Pirata One', 'Luckiest Guy', cursive;
+  --font-body: 'Nunito', 'Segoe UI', sans-serif;
+
+  /* Shape & depth */
+  --radius-card: 18px;
+  --radius-pill: 999px;
+  --border-bold: 3px solid var(--navy-outline);
+  --shadow-card: 0 6px 0 rgba(18, 32, 51, 0.25), 0 14px 30px rgba(11, 37, 69, 0.25);
+  --shadow-pop: 0 4px 0 var(--navy-outline);
+
+  /* Layout */
+  --section-pad: clamp(3.5rem, 8vw, 6rem);
+  --content-width: 64rem;
+}

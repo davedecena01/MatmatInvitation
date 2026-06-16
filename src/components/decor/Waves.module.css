@@ -1,0 +1,46 @@
+.waves {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: clamp(48px, 9vw, 110px);
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.top {
+  bottom: auto;
+  top: -1px;
+  transform: scaleY(-1);
+}
+
+.layer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  width: 200%;
+  will-change: transform;
+}
+
+.layer svg {
+  width: 50%;
+  height: 100%;
+  flex: none;
+}
+
+.slow {
+  animation: drift 16s linear infinite;
+}
+
+.fast {
+  animation: drift 9s linear infinite reverse;
+}
+
+@keyframes drift {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}

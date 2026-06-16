@@ -1,0 +1,53 @@
+.clouds {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.cloud {
+  position: absolute;
+  color: rgba(255, 255, 255, 0.85);
+  filter: drop-shadow(0 4px 0 rgba(18, 32, 51, 0.08));
+  will-change: transform;
+  animation: float linear infinite;
+}
+
+.c1 {
+  width: clamp(70px, 18vw, 140px);
+  top: 8%;
+  animation-duration: 46s;
+}
+
+.c2 {
+  width: clamp(50px, 13vw, 100px);
+  top: 24%;
+  animation-duration: 64s;
+  animation-delay: -22s;
+  opacity: 0.8;
+}
+
+.c3 {
+  width: clamp(90px, 22vw, 170px);
+  top: 47%;
+  animation-duration: 78s;
+  animation-delay: -40s;
+  opacity: 0.6;
+}
+
+.c4 {
+  width: clamp(40px, 10vw, 80px);
+  top: 66%;
+  animation-duration: 56s;
+  animation-delay: -10s;
+  opacity: 0.7;
+}
+
+@keyframes float {
+  from {
+    transform: translateX(-30vw);
+  }
+  to {
+    transform: translateX(110vw);
+  }
+}

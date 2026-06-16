@@ -1,0 +1,166 @@
+@import './theme.css';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--ocean-deep);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.6em;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 3px solid var(--straw-yellow);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- Shared section scaffolding ---------- */
+.section {
+  position: relative;
+  padding: var(--section-pad) 1.25rem;
+}
+
+.section-inner {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: clamp(1.9rem, 6vw, 3rem);
+  text-align: center;
+  color: var(--ocean-deep);
+  text-shadow: 2px 2px 0 rgba(247, 201, 72, 0.55);
+}
+
+.section-kicker {
+  display: block;
+  text-align: center;
+  font-family: var(--font-poster);
+  font-size: clamp(1.05rem, 3.5vw, 1.4rem);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--crimson);
+  margin-bottom: 0.35rem;
+}
+
+/* Readable kicker variant for dark ocean backgrounds */
+.section-kicker--light {
+  color: var(--straw-yellow);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  padding: 0.65rem 1.6rem;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: var(--navy-outline);
+  background: var(--straw-yellow);
+  border: var(--border-bold);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-pop);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 0 var(--navy-outline);
+}
+
+.btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 var(--navy-outline);
+}
+
+.btn--crimson {
+  background: var(--crimson);
+  color: var(--cloud-white);
+}
+
+.btn--parchment {
+  background: var(--parchment);
+}
+
+/* ---------- Scroll reveal ---------- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+[data-reveal].revealed {
+  opacity: 1;
+  transform: none;
+}
+
+[data-reveal='unroll'] {
+  transform: translateY(26px) scaleY(0.85);
+  transform-origin: top center;
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+}
