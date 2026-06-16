@@ -24,6 +24,11 @@ body{background:#0a1730;overflow-x:hidden;font-family:'Nunito',sans-serif;color:
 @keyframes spinSlow{to{transform:rotate(360deg)}}
 @keyframes pulseGlow{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.07);opacity:1}}
 @keyframes shimmer{0%,100%{opacity:.35}50%{opacity:.9}}
+@keyframes deckBob{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-9px) rotate(1.5deg)}}
+@keyframes dealCard{0%{opacity:0;transform:translateY(-64px) scale(.5) rotate(-10deg)}60%{opacity:1}100%{opacity:1;transform:none}}
+#gallery-track::-webkit-scrollbar{display:none}
+#gallery-prev:hover:not(:disabled),#gallery-next:hover:not(:disabled){transform:translateY(-2px)}
+#gallery-prev:disabled,#gallery-next:disabled{opacity:.35;box-shadow:none;cursor:default}
 @keyframes bubbleUp{0%{transform:translateY(0) scale(.6);opacity:0}12%{opacity:.55}100%{transform:translateY(-140px) scale(1);opacity:0}}
 @keyframes flagFlap{0%,100%{transform:skewY(-4deg) scaleX(1)}50%{transform:skewY(4deg) scaleX(.94)}}
 @keyframes rayShift{0%,100%{opacity:.5;transform:translateX(0) skewX(-8deg)}50%{opacity:.85;transform:translateX(18px) skewX(-12deg)}}
@@ -285,51 +290,74 @@ body{background:#0a1730;overflow-x:hidden;font-family:'Nunito',sans-serif;color:
       <h2 style="margin:6px 0 0;font-family:'OnePiece','Bangers',cursive;font-weight:400;line-height:1.05;font-size:clamp(34px,6.5vw,72px);letter-spacing:1.5px;color:#3a2408;text-shadow:0 2px 0 rgba(255,247,225,.6),0 3px 6px rgba(120,80,30,.3)">CAPTAIN'S LOG</h2>
     </div>
 
-    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(18px,3vw,30px);max-width:1080px;width:100%">
-      <div data-reveal="up" style="width:clamp(192px,42vw,234px);transform:rotate(-3deg);transition:transform .3s">
-        <div style="position:relative;width:100%;aspect-ratio:360/510;filter:drop-shadow(0 12px 18px rgba(8,16,36,.55))">
-          <div style="position:absolute;left:14.2%;top:23.5%;width:73.9%;height:39.6%;overflow:hidden;background:#cdb98a">
-            <img src="assets/gallery/gallery-01.jpg" alt="Welcome home, little captain" style="width:100%;height:100%;object-fit:cover;object-position:center 62%;filter:sepia(.18) saturate(1.05)">
+    <div data-reveal="up" style="position:relative;width:100%;max-width:900px">
+      <ul id="gallery-track" aria-label="Gallery slides" style="display:flex;gap:clamp(16px,3vw,24px);margin:0;padding:0.5rem clamp(8vw,12vw,16vw) 1.2rem;list-style:none;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none">
+        <li style="flex:0 0 clamp(192px,68vw,234px);scroll-snap-align:center" aria-label="Slide 1 of 5">
+          <div style="transform:rotate(-3deg);transition:transform .3s">
+            <div style="position:relative;width:100%;aspect-ratio:360/510;filter:drop-shadow(0 12px 18px rgba(8,16,36,.55))">
+              <div style="position:absolute;left:14.2%;top:23.5%;width:73.9%;height:39.6%;overflow:hidden;background:#cdb98a">
+                <img src="assets/gallery/gallery-01.jpg" alt="Welcome home, little captain" style="width:100%;height:100%;object-fit:cover;object-position:center 62%;filter:sepia(.18) saturate(1.05)">
+              </div>
+              <img src="assets/ui/wanted-poster.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none">
+            </div>
+            <div style="text-align:center;font-weight:700;color:#3a2408;font-size:13px;line-height:1.4;margin-top:8px">&ldquo;Welcome home, little captain&rdquo;</div>
           </div>
-          <img src="assets/ui/wanted-poster.png" alt="Wanted poster" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none">
-        </div>
-        <div style="text-align:center;font-weight:700;color:#3a2408;font-size:13px;line-height:1.4;margin-top:8px">&ldquo;Welcome home, little captain&rdquo;</div>
-      </div>
-      <div data-reveal="up" style="width:clamp(192px,42vw,234px);transform:rotate(2.2deg);transition:transform .3s">
-        <div style="position:relative;width:100%;aspect-ratio:360/510;filter:drop-shadow(0 12px 18px rgba(8,16,36,.55))">
-          <div style="position:absolute;left:14.2%;top:23.5%;width:73.9%;height:39.6%;overflow:hidden;background:#cdb98a">
-            <img src="assets/gallery/gallery-02.jpg" alt="Six-ceeding with fiery cuteness" style="width:100%;height:100%;object-fit:cover;object-position:32% 55%;filter:sepia(.18) saturate(1.05)">
+        </li>
+        <li style="flex:0 0 clamp(192px,68vw,234px);scroll-snap-align:center" aria-label="Slide 2 of 5">
+          <div style="transform:rotate(2.2deg);transition:transform .3s">
+            <div style="position:relative;width:100%;aspect-ratio:360/510;filter:drop-shadow(0 12px 18px rgba(8,16,36,.55))">
+              <div style="position:absolute;left:14.2%;top:23.5%;width:73.9%;height:39.6%;overflow:hidden;background:#cdb98a">
+                <img src="assets/gallery/gallery-02.jpg" alt="Six-ceeding with fiery cuteness" style="width:100%;height:100%;object-fit:cover;object-position:32% 55%;filter:sepia(.18) saturate(1.05)">
+              </div>
+              <img src="assets/ui/wanted-poster.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none">
+            </div>
+            <div style="text-align:center;font-weight:700;color:#3a2408;font-size:13px;line-height:1.4;margin-top:8px">&ldquo;Six-ceeding with fiery cuteness&rdquo;</div>
           </div>
-          <img src="assets/ui/wanted-poster.png" alt="Wanted poster" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none">
-        </div>
-        <div style="text-align:center;font-weight:700;color:#3a2408;font-size:13px;line-height:1.4;margin-top:8px">&ldquo;Six-ceeding with fiery cuteness&rdquo;</div>
-      </div>
-      <div data-reveal="up" style="width:clamp(192px,42vw,234px);transform:rotate(-1.6deg);transition:transform .3s">
-        <div style="position:relative;width:100%;aspect-ratio:360/510;filter:drop-shadow(0 12px 18px rgba(8,16,36,.55))">
-          <div style="position:absolute;left:14.2%;top:23.5%;width:73.9%;height:39.6%;overflow:hidden;background:#cdb98a">
-            <img src="assets/gallery/gallery-03.jpg" alt="Making life musical at eight months" style="width:100%;height:100%;object-fit:cover;object-position:72% 45%;filter:sepia(.18) saturate(1.05)">
+        </li>
+        <li style="flex:0 0 clamp(192px,68vw,234px);scroll-snap-align:center" aria-label="Slide 3 of 5">
+          <div style="transform:rotate(-1.6deg);transition:transform .3s">
+            <div style="position:relative;width:100%;aspect-ratio:360/510;filter:drop-shadow(0 12px 18px rgba(8,16,36,.55))">
+              <div style="position:absolute;left:14.2%;top:23.5%;width:73.9%;height:39.6%;overflow:hidden;background:#cdb98a">
+                <img src="assets/gallery/gallery-03.jpg" alt="Making life musical at eight months" style="width:100%;height:100%;object-fit:cover;object-position:72% 45%;filter:sepia(.18) saturate(1.05)">
+              </div>
+              <img src="assets/ui/wanted-poster.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none">
+            </div>
+            <div style="text-align:center;font-weight:700;color:#3a2408;font-size:13px;line-height:1.4;margin-top:8px">&ldquo;Making life musical at eight months&rdquo;</div>
           </div>
-          <img src="assets/ui/wanted-poster.png" alt="Wanted poster" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none">
-        </div>
-        <div style="text-align:center;font-weight:700;color:#3a2408;font-size:13px;line-height:1.4;margin-top:8px">&ldquo;Making life musical at eight months&rdquo;</div>
-      </div>
-      <div data-reveal="up" style="width:clamp(192px,42vw,234px);transform:rotate(2.8deg);transition:transform .3s">
-        <div style="position:relative;width:100%;aspect-ratio:360/510;filter:drop-shadow(0 12px 18px rgba(8,16,36,.55))">
-          <div style="position:absolute;left:14.2%;top:23.5%;width:73.9%;height:39.6%;overflow:hidden;background:#cdb98a">
-            <img src="assets/gallery/gallery-04.jpg" alt="A treasure hunter in the making" style="width:100%;height:100%;object-fit:cover;object-position:42% 42%;filter:sepia(.18) saturate(1.05)">
+        </li>
+        <li style="flex:0 0 clamp(192px,68vw,234px);scroll-snap-align:center" aria-label="Slide 4 of 5">
+          <div style="transform:rotate(2.8deg);transition:transform .3s">
+            <div style="position:relative;width:100%;aspect-ratio:360/510;filter:drop-shadow(0 12px 18px rgba(8,16,36,.55))">
+              <div style="position:absolute;left:14.2%;top:23.5%;width:73.9%;height:39.6%;overflow:hidden;background:#cdb98a">
+                <img src="assets/gallery/gallery-04.jpg" alt="A treasure hunter in the making" style="width:100%;height:100%;object-fit:cover;object-position:42% 42%;filter:sepia(.18) saturate(1.05)">
+              </div>
+              <img src="assets/ui/wanted-poster.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none">
+            </div>
+            <div style="text-align:center;font-weight:700;color:#3a2408;font-size:13px;line-height:1.4;margin-top:8px">&ldquo;A treasure hunter in the making&rdquo;</div>
           </div>
-          <img src="assets/ui/wanted-poster.png" alt="Wanted poster" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none">
-        </div>
-        <div style="text-align:center;font-weight:700;color:#3a2408;font-size:13px;line-height:1.4;margin-top:8px">&ldquo;A treasure hunter in the making&rdquo;</div>
-      </div>
-      <div data-reveal="up" style="width:clamp(192px,42vw,234px);transform:rotate(-2.2deg);transition:transform .3s">
-        <div style="position:relative;width:100%;aspect-ratio:360/510;filter:drop-shadow(0 12px 18px rgba(8,16,36,.55))">
-          <div style="position:absolute;left:14.2%;top:23.5%;width:73.9%;height:39.6%;overflow:hidden;background:#cdb98a">
-            <img src="assets/gallery/gallery-05.jpg" alt="Growing stronger every day" style="width:100%;height:100%;object-fit:cover;object-position:center 52%;filter:sepia(.18) saturate(1.05)">
+        </li>
+        <li style="flex:0 0 clamp(192px,68vw,234px);scroll-snap-align:center" aria-label="Slide 5 of 5">
+          <div style="transform:rotate(-2.2deg);transition:transform .3s">
+            <div style="position:relative;width:100%;aspect-ratio:360/510;filter:drop-shadow(0 12px 18px rgba(8,16,36,.55))">
+              <div style="position:absolute;left:14.2%;top:23.5%;width:73.9%;height:39.6%;overflow:hidden;background:#cdb98a">
+                <img src="assets/gallery/gallery-05.jpg" alt="Growing stronger every day" style="width:100%;height:100%;object-fit:cover;object-position:center 52%;filter:sepia(.18) saturate(1.05)">
+              </div>
+              <img src="assets/ui/wanted-poster.png" alt="" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none">
+            </div>
+            <div style="text-align:center;font-weight:700;color:#3a2408;font-size:13px;line-height:1.4;margin-top:8px">&ldquo;Growing stronger every day&rdquo;</div>
           </div>
-          <img src="assets/ui/wanted-poster.png" alt="Wanted poster" style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none">
+        </li>
+      </ul>
+      <div style="display:flex;align-items:center;justify-content:center;gap:1rem;margin-top:0.6rem">
+        <button id="gallery-prev" aria-label="Previous photo" style="width:46px;height:46px;font-size:1.7rem;line-height:1;color:#16264c;background:#f0b13f;border:3px solid #6f4a22;border-radius:50%;box-shadow:0 4px 0 #b9924f;cursor:pointer;transition:transform .15s,opacity .15s">&#8249;</button>
+        <div id="gallery-dots" role="tablist" aria-label="Choose slide" style="display:flex;gap:0.55rem">
+          <button role="tab" aria-selected="true"  aria-label="Slide 1" style="width:13px;height:13px;padding:0;border:2px solid #3a2408;border-radius:50%;background:#f0b13f;cursor:pointer;transition:background .2s,transform .2s;transform:scale(1.25)"></button>
+          <button role="tab" aria-selected="false" aria-label="Slide 2" style="width:13px;height:13px;padding:0;border:2px solid #3a2408;border-radius:50%;background:transparent;cursor:pointer;transition:background .2s,transform .2s"></button>
+          <button role="tab" aria-selected="false" aria-label="Slide 3" style="width:13px;height:13px;padding:0;border:2px solid #3a2408;border-radius:50%;background:transparent;cursor:pointer;transition:background .2s,transform .2s"></button>
+          <button role="tab" aria-selected="false" aria-label="Slide 4" style="width:13px;height:13px;padding:0;border:2px solid #3a2408;border-radius:50%;background:transparent;cursor:pointer;transition:background .2s,transform .2s"></button>
+          <button role="tab" aria-selected="false" aria-label="Slide 5" style="width:13px;height:13px;padding:0;border:2px solid #3a2408;border-radius:50%;background:transparent;cursor:pointer;transition:background .2s,transform .2s"></button>
         </div>
-        <div style="text-align:center;font-weight:700;color:#3a2408;font-size:13px;line-height:1.4;margin-top:8px">&ldquo;Growing stronger every day&rdquo;</div>
+        <button id="gallery-next" aria-label="Next photo" style="width:46px;height:46px;font-size:1.7rem;line-height:1;color:#16264c;background:#f0b13f;border:3px solid #6f4a22;border-radius:50%;box-shadow:0 4px 0 #b9924f;cursor:pointer;transition:transform .15s,opacity .15s">&#8250;</button>
       </div>
     </div>
   </section>
@@ -418,22 +446,40 @@ body{background:#0a1730;overflow-x:hidden;font-family:'Nunito',sans-serif;color:
       </div>
       <div style="font-family:'OnePiece','Bangers',cursive;letter-spacing:1px;font-size:18px;color:#3a2408">ROBIN &mdash; FASHION OF THE HIGH SEAS</div>
     </div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;max-width:860px;width:100%">
-      <div data-reveal="up" style="display:flex;gap:14px;align-items:flex-start;background:linear-gradient(165deg,#f6e8c4,#ead2a0);border:2px solid #6f4a22;border-radius:14px;box-shadow:0 5px 0 #b9924f;padding:18px;color:#3a2408">
-        <div style="flex:none;width:38px;height:38px;border-radius:50%;background:linear-gradient(180deg,#f7c948,#e09a1f);border:2px solid #6f4a22;display:flex;align-items:center;justify-content:center;font-size:20px">&#128081;</div>
-        <div><div style="font-family:'OnePiece','Bangers',cursive;letter-spacing:.5px;font-size:18px;color:#a51f1d">Smart Casual</div><div style="font-weight:600;font-size:14px;color:#5b3c1c;line-height:1.5;margin-top:2px">Come dressed neatly — think Sunday-best meets adventure-ready.</div></div>
+    <div style="position:relative;min-height:clamp(270px,72vw,330px);width:100%;max-width:860px;display:flex;align-items:center;justify-content:center">
+
+      <!-- Deck — click to reveal cards -->
+      <div id="dress-deck" role="button" tabindex="0" aria-label="Touch the deck to reveal the dress code" style="position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(14px,3vw,22px);cursor:pointer;opacity:1;transform:scale(1);transition:opacity .55s ease,transform .6s cubic-bezier(.2,.8,.2,1)">
+        <div style="position:relative;width:clamp(140px,38vw,172px);height:clamp(184px,50vw,224px);animation:deckBob 3.2s ease-in-out infinite">
+          <div style="position:absolute;inset:0;border-radius:14px;background:linear-gradient(165deg,#f6e8c4,#ead2a0);border:3px solid #6f4a22;box-shadow:0 5px 0 #b9924f;transform:rotate(-9deg) translateY(5px)"></div>
+          <div style="position:absolute;inset:0;border-radius:14px;background:linear-gradient(165deg,#f6e8c4,#ead2a0);border:3px solid #6f4a22;box-shadow:0 5px 0 #b9924f;transform:rotate(6deg) translateY(3px)"></div>
+          <div style="position:absolute;inset:0;border-radius:14px;overflow:hidden;background:radial-gradient(circle at 50% 32%,#26467f,#101f3a 78%);border:3px solid #6f4a22;box-shadow:0 8px 0 #5b3c1c,0 16px 30px rgba(8,16,36,.5);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px">
+            <div style="position:absolute;inset:7px;border:2px dashed rgba(240,177,63,.45);border-radius:9px;pointer-events:none"></div>
+            <img src="assets/ui/skull-flag.gif" alt="" style="width:62%;height:auto;filter:drop-shadow(0 4px 8px rgba(0,0,0,.45));position:relative">
+            <span style="font-family:'OnePiece','Bangers',cursive;letter-spacing:1.5px;color:#f0b13f;font-size:clamp(13px,3.2vw,17px);text-shadow:0 2px 0 #5b3c1c;position:relative">DRESS CODE</span>
+          </div>
+        </div>
+        <div style="display:inline-flex;align-items:center;gap:8px;font-family:'Pirata One',cursive;color:#3a2408;font-size:clamp(12px,2.4vw,14px);letter-spacing:1px;text-transform:uppercase;background:rgba(247,232,196,.88);border:2px solid #6f4a22;border-radius:999px;padding:7px 16px;box-shadow:0 3px 0 #b9924f;animation:shimmer 2.4s ease-in-out infinite">&#9758; Touch the deck to reveal</div>
       </div>
-      <div data-reveal="up" style="display:flex;gap:14px;align-items:flex-start;background:linear-gradient(165deg,#f6e8c4,#ead2a0);border:2px solid #6f4a22;border-radius:14px;box-shadow:0 5px 0 #b9924f;padding:18px;color:#3a2408">
-        <div style="flex:none;width:38px;height:38px;border-radius:50%;background:linear-gradient(180deg,#f7c948,#e09a1f);border:2px solid #6f4a22;display:flex;align-items:center;justify-content:center;font-size:20px">&#127774;</div>
-        <div><div style="font-family:'OnePiece','Bangers',cursive;letter-spacing:.5px;font-size:18px;color:#a51f1d">Sail the Colors</div><div style="font-weight:600;font-size:14px;color:#5b3c1c;line-height:1.5;margin-top:2px">Feel free to wear One Piece-inspired or pirate-themed outfits!</div></div>
-      </div>
-      <div data-reveal="up" style="display:flex;gap:14px;align-items:flex-start;background:linear-gradient(165deg,#f6e8c4,#ead2a0);border:2px solid #6f4a22;border-radius:14px;box-shadow:0 5px 0 #b9924f;padding:18px;color:#3a2408">
-        <div style="flex:none;width:38px;height:38px;border-radius:50%;background:linear-gradient(180deg,#f7c948,#e09a1f);border:2px solid #6f4a22;display:flex;align-items:center;justify-content:center;font-size:20px">&#128097;</div>
-        <div><div style="font-family:'OnePiece','Bangers',cursive;letter-spacing:.5px;font-size:18px;color:#a51f1d">Comfortable Shoes</div><div style="font-weight:600;font-size:14px;color:#5b3c1c;line-height:1.5;margin-top:2px">We'll be sailing between venues — wear shoes you can adventure in.</div></div>
-      </div>
-      <div data-reveal="up" style="display:flex;gap:14px;align-items:flex-start;background:linear-gradient(165deg,#f6e8c4,#ead2a0);border:2px solid #6f4a22;border-radius:14px;box-shadow:0 5px 0 #b9924f;padding:18px;color:#3a2408">
-        <div style="flex:none;width:38px;height:38px;border-radius:50%;background:linear-gradient(180deg,#f7c948,#e09a1f);border:2px solid #6f4a22;display:flex;align-items:center;justify-content:center;font-size:20px">&#127987;</div>
-        <div><div style="font-family:'OnePiece','Bangers',cursive;letter-spacing:.5px;font-size:18px;color:#a51f1d">No strict uniform</div><div style="font-weight:600;font-size:14px;color:#5b3c1c;line-height:1.5;margin-top:2px">Most importantly — come in good spirits and ready to celebrate!</div></div>
+
+      <!-- Cards — hidden until deck is clicked -->
+      <div id="dress-cards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;width:100%;opacity:0;pointer-events:none;transition:opacity .4s ease">
+        <div data-deal-card style="display:flex;gap:14px;align-items:flex-start;background:linear-gradient(165deg,#f6e8c4,#ead2a0);border:2px solid #6f4a22;border-radius:14px;box-shadow:0 5px 0 #b9924f;padding:18px;color:#3a2408">
+          <div style="flex:none;width:38px;height:38px;border-radius:50%;background:linear-gradient(180deg,#f7c948,#e09a1f);border:2px solid #6f4a22;display:flex;align-items:center;justify-content:center;font-size:20px">&#128081;</div>
+          <div><div style="font-family:'OnePiece','Bangers',cursive;letter-spacing:.5px;font-size:18px;color:#a51f1d">Smart Casual</div><div style="font-weight:600;font-size:14px;color:#5b3c1c;line-height:1.5;margin-top:2px">Come dressed neatly — think Sunday-best meets adventure-ready.</div></div>
+        </div>
+        <div data-deal-card style="display:flex;gap:14px;align-items:flex-start;background:linear-gradient(165deg,#f6e8c4,#ead2a0);border:2px solid #6f4a22;border-radius:14px;box-shadow:0 5px 0 #b9924f;padding:18px;color:#3a2408">
+          <div style="flex:none;width:38px;height:38px;border-radius:50%;background:linear-gradient(180deg,#f7c948,#e09a1f);border:2px solid #6f4a22;display:flex;align-items:center;justify-content:center;font-size:20px">&#127774;</div>
+          <div><div style="font-family:'OnePiece','Bangers',cursive;letter-spacing:.5px;font-size:18px;color:#a51f1d">Sail the Colors</div><div style="font-weight:600;font-size:14px;color:#5b3c1c;line-height:1.5;margin-top:2px">Feel free to wear One Piece-inspired or pirate-themed outfits!</div></div>
+        </div>
+        <div data-deal-card style="display:flex;gap:14px;align-items:flex-start;background:linear-gradient(165deg,#f6e8c4,#ead2a0);border:2px solid #6f4a22;border-radius:14px;box-shadow:0 5px 0 #b9924f;padding:18px;color:#3a2408">
+          <div style="flex:none;width:38px;height:38px;border-radius:50%;background:linear-gradient(180deg,#f7c948,#e09a1f);border:2px solid #6f4a22;display:flex;align-items:center;justify-content:center;font-size:20px">&#128097;</div>
+          <div><div style="font-family:'OnePiece','Bangers',cursive;letter-spacing:.5px;font-size:18px;color:#a51f1d">Comfortable Shoes</div><div style="font-weight:600;font-size:14px;color:#5b3c1c;line-height:1.5;margin-top:2px">We'll be sailing between venues — wear shoes you can adventure in.</div></div>
+        </div>
+        <div data-deal-card style="display:flex;gap:14px;align-items:flex-start;background:linear-gradient(165deg,#f6e8c4,#ead2a0);border:2px solid #6f4a22;border-radius:14px;box-shadow:0 5px 0 #b9924f;padding:18px;color:#3a2408">
+          <div style="flex:none;width:38px;height:38px;border-radius:50%;background:linear-gradient(180deg,#f7c948,#e09a1f);border:2px solid #6f4a22;display:flex;align-items:center;justify-content:center;font-size:20px">&#127987;</div>
+          <div><div style="font-family:'OnePiece','Bangers',cursive;letter-spacing:.5px;font-size:18px;color:#a51f1d">No strict uniform</div><div style="font-weight:600;font-size:14px;color:#5b3c1c;line-height:1.5;margin-top:2px">Most importantly — come in good spirits and ready to celebrate!</div></div>
+        </div>
       </div>
     </div>
   </section>
@@ -1086,6 +1132,77 @@ body{background:#0a1730;overflow-x:hidden;font-family:'Nunito',sans-serif;color:
   updateNavUI();
   updateChestUI();
   updateFlagUI();
+
+  // Gallery carousel
+  var galleryTrack = document.getElementById('gallery-track');
+  if (galleryTrack) {
+    var galleryDots = Array.prototype.slice.call(document.querySelectorAll('#gallery-dots [role="tab"]'));
+    var galleryPrev = document.getElementById('gallery-prev');
+    var galleryNext = document.getElementById('gallery-next');
+    var galleryActive = 0;
+    function galleryGoTo(index) {
+      var slides = galleryTrack.children;
+      var clamped = Math.max(0, Math.min(slides.length - 1, index));
+      slides[clamped].scrollIntoView({
+        behavior: window.matchMedia('(prefers-reduced-motion:reduce)').matches ? 'auto' : 'smooth',
+        block: 'nearest', inline: 'center'
+      });
+    }
+    function galleryUpdateDots(active) {
+      galleryActive = active;
+      galleryDots.forEach(function (dot, i) {
+        var on = i === active;
+        dot.setAttribute('aria-selected', on ? 'true' : 'false');
+        dot.style.background = on ? '#f0b13f' : 'transparent';
+        dot.style.transform  = on ? 'scale(1.25)' : 'scale(1)';
+      });
+      if (galleryPrev) galleryPrev.disabled = active === 0;
+      if (galleryNext) galleryNext.disabled = active === galleryTrack.children.length - 1;
+    }
+    var galleryRaf = 0;
+    galleryTrack.addEventListener('scroll', function () {
+      if (!galleryRaf) galleryRaf = requestAnimationFrame(function () {
+        galleryRaf = 0;
+        var tr = galleryTrack.getBoundingClientRect();
+        var center = tr.left + tr.width / 2;
+        var best = 0, bestDist = Infinity;
+        Array.prototype.slice.call(galleryTrack.children).forEach(function (slide, i) {
+          var r = slide.getBoundingClientRect();
+          var dist = Math.abs(r.left + r.width / 2 - center);
+          if (dist < bestDist) { bestDist = dist; best = i; }
+        });
+        galleryUpdateDots(best);
+      });
+    }, { passive: true });
+    galleryDots.forEach(function (dot, i) { dot.addEventListener('click', function () { galleryGoTo(i); }); });
+    if (galleryPrev) galleryPrev.addEventListener('click', function () { galleryGoTo(galleryActive - 1); });
+    if (galleryNext) galleryNext.addEventListener('click', function () { galleryGoTo(galleryActive + 1); });
+    galleryUpdateDots(0);
+  }
+
+  // Dress code deck reveal
+  var dressDeck  = document.getElementById('dress-deck');
+  var dressCards = document.getElementById('dress-cards');
+  function dealDressCode() {
+    if (!dressDeck || !dressCards) return;
+    dressDeck.style.opacity      = '0';
+    dressDeck.style.transform    = 'scale(1.15)';
+    dressDeck.style.pointerEvents = 'none';
+    dressCards.style.opacity     = '1';
+    dressCards.style.pointerEvents = 'auto';
+    var cards = Array.prototype.slice.call(dressCards.querySelectorAll('[data-deal-card]'));
+    cards.forEach(function (card, i) {
+      card.style.animation = 'none';
+      void card.offsetWidth;
+      card.style.animation = 'dealCard .6s cubic-bezier(.18,.9,.24,1) ' + (i * 0.12).toFixed(2) + 's both';
+    });
+  }
+  if (dressDeck) {
+    dressDeck.addEventListener('click', dealDressCode);
+    dressDeck.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); dealDressCode(); }
+    });
+  }
 })();
 </script>
 </body>
