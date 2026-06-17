@@ -1,0 +1,41 @@
+.divider {
+  position: relative;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: clamp(8px, 2vw, 20px) 24px;
+}
+
+.rope {
+  flex: 1;
+  height: 7px;
+  border-radius: 4px;
+  background: repeating-linear-gradient(45deg, #7c5026 0 7px, #a06d36 7px 14px);
+  box-shadow: 0 1px 0 rgba(255, 247, 225, 0.45);
+}
+
+.ropeRight {
+  background: repeating-linear-gradient(-45deg, #7c5026 0 7px, #a06d36 7px 14px);
+}
+
+.wheel {
+  flex: none;
+  font-size: 30px;
+  color: #6f4a22;
+  text-shadow: 0 1px 0 rgba(255, 247, 225, 0.5);
+  animation: wheelSpin 16s linear infinite;
+  display: inline-block;
+}
+
+@keyframes wheelSpin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wheel {
+    animation: none;
+  }
+}
