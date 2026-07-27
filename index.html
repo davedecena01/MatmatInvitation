@@ -72,6 +72,13 @@ body{background:#0a1730;overflow-x:hidden;font-family:'Nunito',sans-serif;color:
   .rem-bodywrap{grid-template-rows:1fr}
   .rem-body{opacity:1}
 }
+/* On phones the hero content spans full width, so drop the two Luffy
+   mascots down to flank the CTA buttons instead of covering the date badge. */
+@media (max-width: 720px) {
+  #luffy-left, #luffy-right { bottom: 13vh !important; width: 74px !important; }
+  #luffy-left  { left: -8px !important; }
+  #luffy-right { right: -8px !important; }
+}
 </style>
 </head>
 <body>
@@ -179,8 +186,8 @@ body{background:#0a1730;overflow-x:hidden;font-family:'Nunito',sans-serif;color:
       <a href="#rsvp" style="text-decoration:none;font-family:'OnePiece','Bangers',cursive;letter-spacing:1.5px;font-size:20px;padding:14px 30px;border-radius:14px;background:linear-gradient(180deg,#e0322f,#a51f1d);color:#fff;border:2px solid #6f4a22;box-shadow:0 6px 0 #5b3c1c,0 12px 24px rgba(8,16,36,.45);transition:all .15s">RSVP ABOARD</a>
     </div>
 
-    <img src="assets/char/luffy-pixel.gif" alt="Luffy" style="position:absolute;left:clamp(2px,2vw,32px);bottom:clamp(200px,34vh,380px);width:clamp(90px,20vw,190px);height:auto;z-index:6;filter:drop-shadow(0 10px 16px rgba(8,16,36,.5));animation:floatChar 5s ease-in-out infinite;pointer-events:none">
-    <img src="assets/char/luffy-gear5.gif" alt="Luffy Gear 5" style="position:absolute;right:clamp(2px,2vw,32px);bottom:clamp(200px,34vh,380px);width:clamp(96px,21vw,200px);height:auto;z-index:6;filter:drop-shadow(0 10px 16px rgba(8,16,36,.5));animation:floatCharR 6s ease-in-out infinite;pointer-events:none">
+    <img id="luffy-left" src="assets/char/luffy-pixel.gif" alt="Luffy" style="position:absolute;left:clamp(2px,2vw,32px);bottom:clamp(200px,34vh,380px);width:clamp(90px,20vw,190px);height:auto;z-index:6;filter:drop-shadow(0 10px 16px rgba(8,16,36,.5));animation:floatChar 5s ease-in-out infinite;pointer-events:none">
+    <img id="luffy-right" src="assets/char/luffy-gear5.gif" alt="Luffy Gear 5" style="position:absolute;right:clamp(2px,2vw,32px);bottom:clamp(200px,34vh,380px);width:clamp(96px,21vw,200px);height:auto;z-index:6;filter:drop-shadow(0 10px 16px rgba(8,16,36,.5));animation:floatCharR 6s ease-in-out infinite;pointer-events:none">
 
     <div style="position:absolute;bottom:clamp(26px,5vh,54px);left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:6px;color:#fdf3df;animation:scrollHint 2s ease-in-out infinite;z-index:5">
       <span style="font-family:'Pirata One',cursive;letter-spacing:2px;font-size:clamp(11px,3vw,13px);opacity:.9">SCROLL TO SET SAIL</span>
