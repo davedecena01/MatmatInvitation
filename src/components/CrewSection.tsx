@@ -23,10 +23,8 @@ export function CrewSection() {
         <span className="section-kicker section-kicker--light">{cfg.crew.subtitle}</span>
         <h2 className={`section-title ${styles.title}`}>{cfg.crew.title}</h2>
 
-        <CrewGroup title="Parents" members={cfg.crew.parents} />
-        <CrewGroup title="Grandparents" members={cfg.crew.grandparents} />
-        <CrewGroup title="Ninongs" members={cfg.crew.ninongs} />
-        <CrewGroup title="Ninangs" members={cfg.crew.ninangs} />
+        <CrewGroup title="The Captains" members={cfg.crew.parents} />
+        <CrewGroup title="The Elder Pirates" members={cfg.crew.grandparents} />
       </div>
       <Waves color="var(--parchment)" />
     </section>

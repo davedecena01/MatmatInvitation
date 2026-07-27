@@ -36,8 +36,8 @@
 }
 
 .portrait {
-  width: 78px;
-  height: 78px;
+  width: 100px;
+  height: 100px;
   margin: 0 auto 0.7rem;
   display: grid;
   place-items: center;
@@ -45,10 +45,19 @@
   background: rgba(255, 255, 255, 0.45);
   border: 2px solid var(--ink);
   border-radius: 8px;
+  overflow: hidden;
 }
 
 .portraitIcon {
-  width: 56px;
+  width: 70px;
+}
+
+.portraitPhoto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
 }
 
 .name {

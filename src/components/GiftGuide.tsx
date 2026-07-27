@@ -1,5 +1,6 @@
 import { invitationConfig as cfg } from '../config/invitationConfig';
-import { ImageWithFallback } from './ImageWithFallback';
+import landbankQr from '../../assets/crew/treasure chest landbank.jpg';
+import gcashQr from '../../assets/gcash-qr.png';
 import styles from './GiftGuide.module.css';
 
 export function GiftGuide() {
@@ -13,19 +14,33 @@ export function GiftGuide() {
         <div className={styles.chest} data-reveal="">
           <p className={styles.message}>{cfg.giftGuide.message}</p>
 
-          <div className={styles.treasureNote}>
-            <ImageWithFallback
-              src={gcash.qrImageSrc}
-              alt={gcash.qrImageAlt}
-              placeholderLabel="GCash QR coming soon"
-              aspectRatio="1 / 1"
-              icon="chest"
-              className={styles.qr}
-            />
-            <div className={styles.gcashDetails}>
-              <p className={styles.gcashLabel}>GCash</p>
-              <p className={styles.gcashName}>{gcash.name}</p>
-              <p className={styles.gcashNumber}>{gcash.number}</p>
+          <div className={styles.qrRow}>
+            {/* GCash */}
+            <div className={styles.qrItem}>
+              <div className={styles.qrFrame}>
+                <img
+                  src={gcashQr}
+                  alt={gcash.qrImageAlt}
+                  className={styles.qrImg}
+                />
+              </div>
+              <p className={styles.qrLabel}>GCash</p>
+              <p className={styles.qrName}>{gcash.name}</p>
+              <p className={styles.qrNumber}>{gcash.number}</p>
+            </div>
+
+            <div className={styles.divider} aria-hidden="true" />
+
+            {/* Landbank */}
+            <div className={styles.qrItem}>
+              <div className={styles.qrFrame}>
+                <img
+                  src={landbankQr}
+                  alt="Landbank QR code for gifts"
+                  className={styles.qrImg}
+                />
+              </div>
+              <p className={styles.qrLabel}>Landbank</p>
             </div>
           </div>
         </div>

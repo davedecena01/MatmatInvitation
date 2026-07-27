@@ -1,7 +1,7 @@
 import { invitationConfig as cfg } from '../config/invitationConfig';
 import { Waves } from './decor/Waves';
-import eneru2Gif from '../../assets/crew/eneru2.gif';
-import luffyEatingGif from '../../assets/char/luffy-eating.gif';
+import blessingsImg from '../../assets/crew/The Blessings Matmat.jpg';
+import feastImg     from '../../assets/crew/The Feast Matmat.jpg';
 import styles from './EventDetails.module.css';
 
 const ICONS = {
@@ -102,8 +102,8 @@ export function EventDetails() {
             card={{
               icon: 'church',
               ...cfg.ceremony,
-              charSrc: eneru2Gif,
-              charAlt: 'Eneru',
+              charSrc: blessingsImg,
+              charAlt: 'The Blessings',
               charBg: 'radial-gradient(circle at 50% 36%, #2f6fbe, #0c2d5c 78%)',
             }}
           />
@@ -111,8 +111,8 @@ export function EventDetails() {
             card={{
               icon: 'party',
               ...cfg.reception,
-              charSrc: luffyEatingGif,
-              charAlt: 'Luffy feasting',
+              charSrc: feastImg,
+              charAlt: 'The Feast',
               charBg: '#0c1a38',
             }}
           />

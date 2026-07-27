@@ -5,7 +5,7 @@
 }
 
 .chest {
-  max-width: 34rem;
+  max-width: 38rem;
   margin: 2rem auto 0;
   padding: clamp(1.5rem, 5vw, 2.5rem);
   background: linear-gradient(170deg, #8a5a2b, #6d4520);
@@ -38,54 +38,91 @@
   margin-bottom: 1.5rem;
 }
 
-.treasureNote {
+/* Two-QR row */
+.qrRow {
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 1.2rem;
   padding: 1.25rem;
   background: linear-gradient(165deg, var(--parchment), var(--parchment-dark));
   border: 3px dashed var(--treasure-gold);
   border-radius: 12px;
 }
 
-@media (min-width: 560px) {
-  .treasureNote {
+@media (min-width: 520px) {
+  .qrRow {
     flex-direction: row;
     justify-content: center;
+    align-items: flex-start;
   }
 }
 
-.qr {
-  width: min(56vw, 200px);
-  flex: none;
-  border: var(--border-bold);
-  background: var(--cloud-white);
+.qrItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  flex: 1;
 }
 
-.gcashDetails {
+.qrFrame {
+  width: min(52vw, 180px);
+  height: min(52vw, 180px);
+  border: var(--border-bold);
+  border-radius: 8px;
+  background: var(--cloud-white);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qrImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.divider {
+  width: 2px;
+  align-self: stretch;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--treasure-gold) 0 6px,
+    transparent 6px 12px
+  );
+  display: none;
+}
+
+@media (min-width: 520px) {
+  .divider {
+    display: block;
+  }
+}
+
+.qrLabel {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--ocean-mid);
+  margin: 0;
   text-align: center;
 }
 
-.gcashLabel {
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  color: var(--ocean-mid);
-  margin: 0 0 0.3rem;
-}
-
-.gcashName {
+.qrName {
   font-weight: 800;
-  font-size: 1.05rem;
-  margin: 0 0 0.15rem;
+  font-size: 1rem;
+  margin: 0;
+  text-align: center;
 }
 
-.gcashNumber {
+.qrNumber {
   font-family: var(--font-poster);
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   letter-spacing: 0.12em;
   color: var(--crimson-dark);
   margin: 0;
+  text-align: center;
 }
